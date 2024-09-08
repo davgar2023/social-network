@@ -17,11 +17,11 @@ describe('Social Network Tests', function() {
   });
 
   it('should add individuals to the network', function() {
-    assert.strictEqual(network.individuals.get('1').name, 'Alice', 'Individual Alice should be added.');
-    assert.strictEqual(network.individuals.get('2').name, 'Bob', 'Individual Bob should be added.');
-    assert.strictEqual(network.individuals.get('3').name, 'Charlie', 'Individual Charlie should be added.');
-    assert.strictEqual(network.individuals.get('4').name, 'David', 'Individual David should be added.');
-    assert.strictEqual(network.individuals.get('5').name, 'Eve', 'Individual Eve should be added.');
+    assert.strictEqual(network.individuals.get('1').getName(), 'Alice', 'Individual Alice should be added.');
+    assert.strictEqual(network.individuals.get('2').getName(), 'Bob', 'Individual Bob should be added.');
+    assert.strictEqual(network.individuals.get('3').getName(), 'Charlie', 'Individual Charlie should be added.');
+    assert.strictEqual(network.individuals.get('4').getName(), 'David', 'Individual David should be added.');
+    assert.strictEqual(network.individuals.get('5').getName(), 'Eve', 'Individual Eve should be added.');
   });
 
   it('should establish friendships', function() {
@@ -30,18 +30,18 @@ describe('Social Network Tests', function() {
     network.addFriendship('3', '4'); // Charlie - David
     network.addFriendship('4', '5'); // David - Eve
 
-    assert.strictEqual(network.individuals.get('1').friends.has(network.individuals.get('2')), true, 'Alice and Bob should be friends.');
-    assert.strictEqual(network.individuals.get('2').friends.has(network.individuals.get('3')), true, 'Bob and Charlie should be friends.');
-    assert.strictEqual(network.individuals.get('3').friends.has(network.individuals.get('4')), true, 'Charlie and David should be friends.');
-    assert.strictEqual(network.individuals.get('4').friends.has(network.individuals.get('5')), true, 'David and Eve should be friends.');
+    assert.strictEqual(network.individuals.get('1').getFriends().has(network.individuals.get('2')), true, 'Alice and Bob should be friends.');
+    assert.strictEqual(network.individuals.get('2').getFriends().has(network.individuals.get('3')), true, 'Bob and Charlie should be friends.');
+    assert.strictEqual(network.individuals.get('3').getFriends().has(network.individuals.get('4')), true, 'Charlie and David should be friends.');
+    assert.strictEqual(network.individuals.get('4').getFriends().has(network.individuals.get('5')), true, 'David and Eve should be friends.');
   });
 
   it('should remove a friendship', function() {
     network.addFriendship('1', '2'); // Establish friendship between Alice and Bob
     network.removeFriendship('1', '2'); // Remove friendship between Alice and Bob
 
-    assert.strictEqual(network.individuals.get('1').friends.has(network.individuals.get('2')), false, 'Friendship between Alice and Bob should be removed.');
-    assert.strictEqual(network.individuals.get('2').friends.has(network.individuals.get('1')), false, 'Friendship between Bob and Alice should be removed.');
+    assert.strictEqual(network.individuals.get('1').getFriends().has(network.individuals.get('2')), false, 'Friendship between Alice and Bob should be removed.');
+    assert.strictEqual(network.individuals.get('2').getFriends().has(network.individuals.get('1')), false, 'Friendship between Bob and Alice should be removed.');
   });
 
   it('should calculate the degree of separation', function() {

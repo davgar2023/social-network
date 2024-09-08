@@ -130,3 +130,11 @@ Run the tests:
 
 npm test
 
+ Social Network Tests
+    ✔ should add individuals to the network
+    ✔ should establish friendships
+Relationship deleted between Alice and Bob
+    ✔ should remove a friendship
+    ✔ should calculate the degree of separation
+One or both individuals not found.
+    ✔ should handle non-existent individuals in removeFriendship

@@ -1,9 +1,5 @@
-// modules/SocialNetwork.js
 const Individual = require('./Individual');
 
-/**
- * Class representing the social network.
- */
 class SocialNetwork {
   constructor() {
     this.individuals = new Map(); // Map to store individuals by their ID.
@@ -34,6 +30,23 @@ class SocialNetwork {
     if (person1 && person2) {
       person1.addFriend(person2);
       person2.addFriend(person1); // Mutual friendship.
+    } else {
+      console.log('One or both individuals not found.');
+    }
+  }
+
+  /**
+   * Remove a friendship between two individuals.
+   * @param {string} id1 - The ID of the first individual.
+   * @param {string} id2 - The ID of the second individual.
+   */
+  removeFriendship(id1, id2) {
+    const person1 = this.individuals.get(id1);
+    const person2 = this.individuals.get(id2);
+    if (person1 && person2) {
+      person1.removeFriend(person2);
+      person2.removeFriend(person1);
+      console.log(`Friendship removed between ${person1.getName()} and ${person2.getName()}`);
     } else {
       console.log('One or both individuals not found.');
     }
@@ -76,42 +89,27 @@ class SocialNetwork {
         return degree;
       }
 
-      for (let friend of currentPerson.friends) {
-        if (!visited.has(friend.id)) {
-          visited.add(friend.id);
-          queue.push([friend.id, degree + 1]);
+      for (let friend of currentPerson.getFriends()) {
+        if (!visited.has(friend.getId())) {
+          visited.add(friend.getId());
+          queue.push([friend.getId(), degree + 1]);
         }
       }
     }
 
     return -1; // Return -1 if no connection is found.
   }
-/**
-   * Remove a friendship between two individuals.
-   * @param {string} id1 - The ID of the first individual.
-   * @param {string} id2 - The ID of the second individual.
-   */
-removeFriendship(id1, id2) {
-  const person1 = this.individuals.get(id1);
-  const person2 = this.individuals.get(id2);
-  if (person1 && person2) {
-    person1.friends.delete(person2);
-    person2.friends.delete(person1);
-    console.log(`Friendship removed between ${person1.name} and ${person2.name}`);
-  } else {
-    console.log('One or both individuals not found.');
-  }
-}
-/**
+
+  /**
    * Print all relationships (friendships) in the social network.
    */
-printRelationships() {
+  printRelationships() {
     this.individuals.forEach((person) => {
-      const friendsNames = [...person.friends].map(friend => friend.name).join(', ');
-      console.log(`${person.name}'s friends: ${friendsNames}`);
+      const friendsNames = [...person.getFriends()].map(friend => friend.getName()).join(', ');
+      console.log(`${person.getName()}'s friends: ${friendsNames}`);
     });
   }
-
 }
 
 module.exports = SocialNetwork;
+
