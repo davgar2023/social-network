@@ -16,6 +16,8 @@ This project implements a basic social network data structure using JavaScript c
 ├── modules/
 │   ├── SocialNetwork.js  # Social Network class containing main functionalities
 │   └── Individual.js     # Individual class representing each person in the network
+├── test/                 # Directory containing test cases
+│   └── SocialNetwork.test.js # Test cases for the SocialNetwork class
 └── README.md             # Project documentation
 
 
@@ -24,10 +26,10 @@ This project implements a basic social network data structure using JavaScript c
 
     To get started with the project, clone the repository and install the dependencies.
 
-    ```bash ```
     git clone https://github.com/davgar2023/social-network.git
-    cd <social-network>
+    cd social-network
     npm install
+
 
 
 ### api
@@ -38,6 +40,53 @@ addFriendship(id1, id2): Establishes a friendship between two individuals.
 updateIndividual(id, newName): Updates the name of an individual.
 calculateDegreeOfSeparation(startId, targetId): Calculates the degree of separation between two individuals using BFS. Returns -1 if they are not connected.
 printRelationships(): Prints all the friendships in the network.
+
+1. SocialNetwork Class
+    - addIndividual(id, name):
+        Adds a new individual to the social network.
+        Arguments:
+            id (string): The unique identifier for the individual.
+            name (string): The name of the individual.
+            Returns: void
+    - addFriendship(id1, id2):
+            Establishes a friendship between two individuals.
+            Arguments:
+            id1 (string): The ID of the first individual.
+            id2 (string): The ID of the second individual.
+            Returns: void
+    - removeFriendship(id1, id2):
+            Removes a friendship between two individuals.
+            Arguments:
+            id1 (string): The ID of the first individual.
+            id2 (string): The ID of the second individual.
+            Returns: void
+    - updateIndividual(id, newName):
+            Updates the name of an individual.
+            Arguments:
+            id (string): The ID of the individual.
+            newName (string): The new name of the individual.
+            Returns: void
+    - calculateDegreeOfSeparation(startId, targetId):
+            Calculates the degree of separation between two individuals using BFS. Returns -1 if they are not connected.
+            Arguments:
+            startId (string): The ID of the starting individual.
+            targetId (string): The ID of the target individual.
+            Returns: number (The degree of separation or -1 if no connection exists)
+    - printRelationships():
+            Prints all the friendships in the network.
+            Returns: void
+ 2. Individual Class
+    - addFriend(friend):
+            Adds a friend to the individual's friends list.
+            Arguments:
+            friend (Individual): The friend to add.
+            Returns: void
+    - updateName(newName):
+            Updates the name of the individual.
+            Arguments:
+            newName (string): The new name of the individual.
+            Returns: void
+
 
 ### Individual Class
 addFriend(friend): Adds a friend to the individual's friends list.
@@ -76,3 +125,8 @@ network.printRelationships();
 // execute project 
 
 node index.js  
+
+Run the tests:
+
+npm test
+

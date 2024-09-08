@@ -86,7 +86,22 @@ class SocialNetwork {
 
     return -1; // Return -1 if no connection is found.
   }
-
+/**
+   * Remove a friendship between two individuals.
+   * @param {string} id1 - The ID of the first individual.
+   * @param {string} id2 - The ID of the second individual.
+   */
+removeFriendship(id1, id2) {
+  const person1 = this.individuals.get(id1);
+  const person2 = this.individuals.get(id2);
+  if (person1 && person2) {
+    person1.friends.delete(person2);
+    person2.friends.delete(person1);
+    console.log(`Friendship removed between ${person1.name} and ${person2.name}`);
+  } else {
+    console.log('One or both individuals not found.');
+  }
+}
 /**
    * Print all relationships (friendships) in the social network.
    */
