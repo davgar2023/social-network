@@ -71,3 +71,8 @@ console.log('Degree of separation between Alice and David:', network.calculateDe
 // Print relationships
 console.log('Friendships:');
 network.printRelationships();
+
+
+// execute project 
+
+node index.js  
