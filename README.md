@@ -22,6 +22,12 @@ This project implements a basic social network data structure using JavaScript c
 
 
 
+
+
+
+
+
+
 ## Installation
 
     To get started with the project, clone the repository and install the dependencies.
