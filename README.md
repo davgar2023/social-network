@@ -5,116 +5,116 @@
 [![Node.js](https://img.shields.io/badge/node-%3E%3D%2014.0.0-brightgreen)](https://nodejs.org/)
 [![Status](https://img.shields.io/badge/status-active-success)](https://github.com/davgar2023/social-network)
 
-Una implementación de una red social usando estructuras de datos gráficas en JavaScript. Los individuos se representan como nodos y las amistades como aristas. Este proyecto incluye funcionalidades para gestionar individuos, establecer amistades y calcular grados de separación entre usuarios.
+A social network implementation using graph data structures in JavaScript. Individuals are represented as nodes and friendships as edges. This project includes features to manage individuals, establish friendships, and calculate degrees of separation between users.
 
-**[🔗 Ver Demo en Vivo](#demo)** | **[📖 Documentación Completa](#table-of-contents)** | **[💻 Código Fuente](https://github.com/davgar2023/social-network)**
+**[🔗 Live Demo](#demo)** | **[📖 Full Documentation](#table-of-contents)** | **[💻 Source Code](https://github.com/davgar2023/social-network)**
 
 ---
 
-## 📋 Tabla de Contenidos
+## 📋 Table of Contents
 
-- [Descripción del Proyecto](#descripción-del-proyecto)
-- [Características](#características)
-- [Requisitos](#requisitos)
-- [Instalación](#instalación)
-- [Uso](#uso)
+- [Project Description](#project-description)
+- [Features](#features)
+- [Requirements](#requirements)
+- [Installation](#installation)
+- [Usage](#usage)
 - [API](#api)
-- [Ejemplos](#ejemplos)
-- [Pruebas](#pruebas)
-- [Estructura del Proyecto](#estructura-del-proyecto)
+- [Examples](#examples)
+- [Testing](#testing)
+- [Project Structure](#project-structure)
 - [Demo](#demo)
-- [Contribuir](#contribuir)
-- [Licencia](#licencia)
-- [Autor](#autor)
+- [Contributing](#contributing)
+- [License](#license)
+- [Author](#author)
 
 ---
 
-## 📖 Descripción del Proyecto
+## 📖 Project Description
 
-Este proyecto implementa una estructura de datos de red social utilizando clases de JavaScript. Permite:
+This project implements a social network data structure using JavaScript classes. It allows you to:
 
-- ✅ Agregar individuos a la red
-- ✅ Establecer y gestionar amistades bidireccionales
-- ✅ Calcular el grado de separación entre dos personas (Número de Erdős)
-- ✅ Actualizar información de individuos
-- ✅ Visualizar todas las relaciones en la red
-- ✅ Eliminar amistades
+- ✅ Add individuals to the network
+- ✅ Establish and manage bidirectional friendships
+- ✅ Calculate the degree of separation between two people (Erdős number)
+- ✅ Update individual information
+- ✅ Visualize all relationships in the network
+- ✅ Remove friendships
 
-El algoritmo utiliza **BFS (Búsqueda en Amplitud)** para calcular el camino más corto entre dos nodos, implementando el concepto del "Número de Erdős" o "Grado de Separación de Seis".
-
----
-
-## ✨ Características
-
-| Característica | Descripción |
-|---|---|
-| 👥 Gestión de Usuarios | Agregar, actualizar y gestionar individuos en la red |
-| 🔗 Amistades Bidireccionales | Las amistades se establecen en ambas direcciones automáticamente |
-| 📊 Análisis de Conexiones | Calcula el grado de separación entre cualquier par de usuarios |
-| 🔍 Búsqueda BFS | Algoritmo eficiente para encontrar el camino más corto |
-| 🧪 Pruebas Unitarias | Suite completa de tests con Jest |
-| 📝 Documentación | Código bien documentado y ejemplos claros |
+The algorithm uses **BFS (Breadth-First Search)** to calculate the shortest path between two nodes, implementing the concept of the "Erdős Number" or "Six Degrees of Separation".
 
 ---
 
-## 📦 Requisitos
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 👥 User Management | Add, update, and manage individuals in the network |
+| 🔗 Bidirectional Friendships | Friendships are automatically established in both directions |
+| 📊 Connection Analysis | Calculate the degree of separation between any pair of users |
+| 🔍 BFS Search | Efficient algorithm to find the shortest path |
+| 🧪 Unit Tests | Complete test suite with Jest |
+| 📝 Documentation | Well-documented code and clear examples |
+
+---
+
+## 📦 Requirements
 
 - **Node.js** >= 14.0.0
 - **npm** >= 6.0.0
-- Navegador moderno (para versiones web futuras)
+- Modern browser (for future web versions)
 
 ---
 
-## 🚀 Instalación
+## 🚀 Installation
 
-1. **Clonar el repositorio:**
+1. **Clone the repository:**
 ```bash
 git clone https://github.com/davgar2023/social-network.git
 cd social-network
 ```
 
-2. **Instalar dependencias:**
+2. **Install dependencies:**
 ```bash
 npm install
 ```
 
-3. **Verificar la instalación:**
+3. **Verify the installation:**
 ```bash
 npm test
 ```
 
 ---
 
-## 💻 Uso
+## 💻 Usage
 
-### Ejecutar el Ejemplo Básico
+### Run the Basic Example
 
 ```bash
 node index.js
 ```
 
-### Uso en tu Proyecto
+### Usage in Your Project
 
 ```javascript
 const SocialNetwork = require('./modules/SocialNetwork');
 
-// Crear una instancia de la red social
+// Create a social network instance
 const network = new SocialNetwork();
 
-// Agregar individuos
+// Add individuals
 network.addIndividual('1', 'Alice');
 network.addIndividual('2', 'Bob');
 network.addIndividual('3', 'Charlie');
 
-// Establecer amistades
+// Establish friendships
 network.addFriendship('1', '2'); // Alice ↔ Bob
 network.addFriendship('2', '3'); // Bob ↔ Charlie
 
-// Calcular grado de separación
+// Calculate degree of separation
 const degree = network.calculateDegreeOfSeparation('1', '3');
-console.log(`Grado de separación entre Alice y Charlie: ${degree}`); // Output: 2
+console.log(`Degree of separation between Alice and Charlie: ${degree}`); // Output: 2
 
-// Ver todas las relaciones
+// View all relationships
 network.printRelationships();
 ```
 
@@ -122,15 +122,15 @@ network.printRelationships();
 
 ## 📚 API
 
-### Clase SocialNetwork
+### SocialNetwork Class
 
 #### `addIndividual(id, name)`
-Agrega un nuevo individuo a la red social.
+Adds a new individual to the social network.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| id | string | Identificador único del individuo |
-| name | string | Nombre del individuo |
+| id | string | Unique identifier of the individual |
+| name | string | Name of the individual |
 
 ```javascript
 network.addIndividual('1', 'Alice');
@@ -139,26 +139,26 @@ network.addIndividual('1', 'Alice');
 ---
 
 #### `addFriendship(id1, id2)`
-Establece una amistad bidireccional entre dos individuos.
+Establishes a bidirectional friendship between two individuals.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| id1 | string | ID del primer individuo |
-| id2 | string | ID del segundo individuo |
+| id1 | string | ID of the first individual |
+| id2 | string | ID of the second individual |
 
 ```javascript
-network.addFriendship('1', '2'); // Alice y Bob son amigos
+network.addFriendship('1', '2'); // Alice and Bob are friends
 ```
 
 ---
 
 #### `removeFriendship(id1, id2)`
-Elimina la amistad entre dos individuos.
+Removes the friendship between two individuals.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| id1 | string | ID del primer individuo |
-| id2 | string | ID del segundo individuo |
+| id1 | string | ID of the first individual |
+| id2 | string | ID of the second individual |
 
 ```javascript
 network.removeFriendship('1', '2');
@@ -167,12 +167,12 @@ network.removeFriendship('1', '2');
 ---
 
 #### `updateIndividual(id, newName)`
-Actualiza el nombre de un individuo.
+Updates the name of an individual.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| id | string | ID del individuo |
-| newName | string | Nuevo nombre |
+| id | string | ID of the individual |
+| newName | string | New name |
 
 ```javascript
 network.updateIndividual('4', 'Dave');
@@ -181,24 +181,24 @@ network.updateIndividual('4', 'Dave');
 ---
 
 #### `calculateDegreeOfSeparation(startId, targetId)`
-Calcula el grado de separación (camino más corto) entre dos individuos usando BFS.
+Calculates the degree of separation (shortest path) between two individuals using BFS.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| startId | string | ID del individuo inicial |
-| targetId | string | ID del individuo objetivo |
+| startId | string | ID of the starting individual |
+| targetId | string | ID of the target individual |
 
-**Retorna:** `number` - Grado de separación o `-1` si no hay conexión
+**Returns:** `number` - Degree of separation or `-1` if no connection exists
 
 ```javascript
 const degree = network.calculateDegreeOfSeparation('1', '4');
-console.log(degree); // 3 (si hay conexión) o -1 (si no hay)
+console.log(degree); // 3 (if connected) or -1 (if not)
 ```
 
 ---
 
 #### `printRelationships()`
-Imprime todas las amistades en la red.
+Prints all friendships in the network.
 
 ```javascript
 network.printRelationships();
@@ -211,102 +211,102 @@ network.printRelationships();
 
 ---
 
-### Clase Individual
+### Individual Class
 
 #### `addFriend(friend)`
-Agrega un amigo a la lista de amigos del individuo.
+Adds a friend to the individual's friends list.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| friend | Individual | Objeto Individual a agregar como amigo |
+| friend | Individual | Individual object to add as a friend |
 
 ---
 
 #### `updateName(newName)`
-Actualiza el nombre del individuo.
+Updates the individual's name.
 
-| Parámetro | Tipo | Descripción |
+| Parameter | Type | Description |
 |-----------|------|-------------|
-| newName | string | Nuevo nombre del individuo |
+| newName | string | New name of the individual |
 
 ---
 
-## 🎯 Ejemplos
+## 🎯 Examples
 
-### Ejemplo 1: Red Social Simple
+### Example 1: Simple Social Network
 
 ```javascript
 const SocialNetwork = require('./modules/SocialNetwork');
 
 const network = new SocialNetwork();
 
-// Crear una red de 4 personas
+// Create a network of 4 people
 network.addIndividual('1', 'Alice');
 network.addIndividual('2', 'Bob');
 network.addIndividual('3', 'Charlie');
 network.addIndividual('4', 'David');
 
-// Establecer amistades
+// Establish friendships
 network.addFriendship('1', '2'); // Alice - Bob
 network.addFriendship('2', '3'); // Bob - Charlie
 network.addFriendship('3', '4'); // Charlie - David
 
-// Actualizar nombre
+// Update name
 network.updateIndividual('4', 'Dave');
 
-// Calcular grado de separación
-console.log('Grado de separación entre Alice y Dave:', 
+// Calculate degree of separation
+console.log('Degree of separation between Alice and Dave:', 
             network.calculateDegreeOfSeparation('1', '4')); // Output: 3
 
-// Mostrar todas las relaciones
-console.log('\nAmistades:');
+// Show all relationships
+console.log('\nFriendships:');
 network.printRelationships();
 ```
 
-### Ejemplo 2: Red Más Compleja
+### Example 2: More Complex Network
 
 ```javascript
 const SocialNetwork = require('./modules/SocialNetwork');
 
 const network = new SocialNetwork();
 
-// Agregar 6 personas
+// Add 6 people
 for (let i = 1; i <= 6; i++) {
   network.addIndividual(String(i), `Person${i}`);
 }
 
-// Crear conexiones
+// Create connections
 network.addFriendship('1', '2');
 network.addFriendship('2', '3');
 network.addFriendship('3', '4');
 network.addFriendship('4', '5');
 network.addFriendship('5', '6');
-network.addFriendship('1', '6'); // Crear un ciclo
+network.addFriendship('1', '6'); // Create a cycle
 
-// Analizar conexiones
-console.log('Separación 1→6:', network.calculateDegreeOfSeparation('1', '6')); // 1
+// Analyze connections
+console.log('Separation 1→6:', network.calculateDegreeOfSeparation('1', '6')); // 1
 ```
 
 ---
 
-## 🧪 Pruebas
+## 🧪 Testing
 
-### Ejecutar Tests
+### Run Tests
 
 ```bash
 npm test
 ```
 
-### Cobertura de Tests
+### Test Coverage
 
-El proyecto incluye pruebas para:
-- ✅ Agregar individuos a la red
-- ✅ Establecer amistades
-- ✅ Eliminar amistades
-- ✅ Calcular grado de separación
-- ✅ Manejar individuos no existentes
+The project includes tests for:
+- ✅ Adding individuals to the network
+- ✅ Establishing friendships
+- ✅ Removing friendships
+- ✅ Calculating degree of separation
+- ✅ Handling non-existent individuals
 
-**Resultados esperados:**
+**Expected results:**
 ```
 Social Network Tests
   ✔ should add individuals to the network
@@ -320,78 +320,90 @@ Social Network Tests
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 social-network/
-├── index.js                    # Punto de entrada - ejemplo de uso
-├── package.json               # Configuración de npm
-├── package-lock.json          # Dependencias bloqueadas
-├── README.md                  # Este archivo
-├── LICENSE                    # Licencia MIT
-├── .gitignore                 # Archivos ignorados por git
+├── index.js                    # Entry point - usage example
+├── package.json               # npm configuration
+├── package-lock.json          # Locked dependencies
+├── README.md                  # This file
+├── LICENSE                    # MIT License
+├── .gitignore                 # Git ignored files
 ├── modules/
-│   ├── SocialNetwork.js       # Clase principal de la red social
-│   └── Individual.js          # Clase para representar individuos
+│   ├── SocialNetwork.js       # Main social network class
+│   └── Individual.js          # Class representing individuals
 └── __test__/
-    └── SocialNetwork.test.js  # Suite de tests
+    └── SocialNetwork.test.js  # Test suite
 ```
 
 ---
 
 ## 🔗 Demo
 
-### Opción 1: Ejecutar Localmente
+### Option 1: Run Locally
 
 ```bash
-# Clonar y configurar
+# Clone and setup
 git clone https://github.com/davgar2023/social-network.git
 cd social-network
 npm install
 
-# Ejecutar el ejemplo
+# Run the example
 node index.js
 ```
 
-### Opción 2: Visualización en Línea
+### Option 2: Online Visualization
 
-Puedes interactuar con el código en plataformas como:
+You can interact with the code on platforms like:
 
-- **[RunKit](https://runkit.com)** - Ejecuta código Node.js en línea
-- **[Replit](https://replit.com)** - Crea un proyecto forked del repositorio
-- **[CodePen](https://codepen.io)** - (con ajustes para Node.js)
+- **[RunKit](https://runkit.com)** - Run Node.js code online
+- **[Replit](https://replit.com)** - Create a forked project of the repository
+- **[CodeSandbox](https://codesandbox.io)** - Interactive development environment
 
-### Opción 3: Playground Interactivo
+### Option 3: Interactive Playground
 
-Para una experiencia interactiva completa, se recomienda usar:
+For a complete interactive experience, use:
 ```bash
 node -i -e "const SocialNetwork = require('./modules/SocialNetwork'); const network = new SocialNetwork();"
 ```
 
----
+Then in the Node REPL:
+```javascript
+network.addIndividual('1', 'Alice');
+network.addIndividual('2', 'Bob');
+network.addFriendship('1', '2');
+network.calculateDegreeOfSeparation('1', '2'); // Returns: 1
+```
 
-## 🤝 Contribuir
+### Quick Test without Installation
 
-¡Las contribuciones son bienvenidas! Para contribuir:
-
-1. **Fork** el repositorio
-2. **Crea una rama** para tu feature (`git checkout -b feature/amazing-feature`)
-3. **Commit** tus cambios (`git commit -m 'Add some amazing feature'`)
-4. **Push** a la rama (`git push origin feature/amazing-feature`)
-5. **Abre un Pull Request**
-
-### Directrices de Contribución
-
-- Sigue el estilo de código existente
-- Agrega tests para nuevas funcionalidades
-- Actualiza la documentación según sea necesario
-- Asegúrate de que todos los tests pasen (`npm test`)
+Visit any Node.js playground and paste the code from the [Examples](#examples) section above.
 
 ---
 
-## 📄 Licencia
+## 🤝 Contributing
 
-Este proyecto está bajo la Licencia MIT. Ver archivo [LICENSE](LICENSE) para más detalles.
+Contributions are welcome! To contribute:
+
+1. **Fork** the repository
+2. **Create a branch** for your feature (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add some amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open a Pull Request**
+
+### Contribution Guidelines
+
+- Follow the existing code style
+- Add tests for new features
+- Update documentation as needed
+- Ensure all tests pass (`npm test`)
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) file for more details.
 
 ```
 MIT License
@@ -411,37 +423,38 @@ copies or substantial portions of the Software.
 
 ---
 
-## 👤 Autor
+## 👤 Author
 
 **David García** (davgar2023)
 
 - 🐙 GitHub: [@davgar2023](https://github.com/davgar2023)
-- 📧 Contacto a través de GitHub
+- 📧 Contact via GitHub
 
 ---
 
-## 📞 Soporte
+## 📞 Support
 
-Si tienes preguntas o problemas, por favor:
+If you have questions or encounter issues, please:
 
-1. Revisa los [Issues existentes](https://github.com/davgar2023/social-network/issues)
-2. [Crea un nuevo Issue](https://github.com/davgar2023/social-network/issues/new) con descripción detallada
-3. Incluye ejemplos de código si es posible
-
----
-
-## 🗺️ Roadmap Futuro
-
-- [ ] Interfaz web (React)
-- [ ] API REST con Express
-- [ ] Base de datos (MongoDB)
-- [ ] Visualización de la red (D3.js)
-- [ ] Búsqueda de caminos alternativos
-- [ ] Análisis de comunidades
-- [ ] Métrica de centralidad
+1. Check [existing Issues](https://github.com/davgar2023/social-network/issues)
+2. [Create a new Issue](https://github.com/davgar2023/social-network/issues/new) with a detailed description
+3. Include code examples if possible
 
 ---
 
-## ⭐ Si este proyecto te fue útil, considera darle una estrella!
+## 🗺️ Future Roadmap
 
-**[⬆ Volver al inicio](#social-network-data-structure-)**
+- [ ] Web Interface (React)
+- [ ] REST API with Express
+- [ ] Database Integration (MongoDB)
+- [ ] Network Visualization (D3.js)
+- [ ] Alternative Path Search
+- [ ] Community Analysis
+- [ ] Centrality Metrics
+- [ ] GraphQL API
+
+---
+
+## ⭐ If this project was helpful, consider giving it a star!
+
+**[⬆ Back to top](#social-network-data-structure-)**
